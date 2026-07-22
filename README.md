@@ -4,7 +4,8 @@ Reusable UI issue capture primitives for browser apps and server-side issue crea
 
 This package owns the portable task-capture contract, so another project can reuse it without depending on the Aijourney shared package.
 
-The source of truth lives in the `aijourney` monorepo under `enai/packages/ui-task-capture` and is mirrored to `dsdenes/ui-task-capture` for standalone consumption and npm publishing.
+The active development source of truth lives in `~/ui-task-capture` (typically a clone of `dsdenes/ui-task-capture`).
+The copy in the `aijourney` monorepo under `enai/packages/ui-task-capture` is the synced mirror used by the local app consumers and Docker builds.
 
 ## What it provides
 
@@ -87,4 +88,5 @@ const issue = await client.createIssue(
 - Mark stable elements with `data-task-capture-id` so issue reports reference meaningful targets.
 - Mark the widget or popover shell with `data-task-capture-ignore` so the capture controller ignores its own UI.
 - Install from npm with `pnpm add @dsdenes/ui-task-capture` or `npm install @dsdenes/ui-task-capture`.
+- Develop the package in `~/ui-task-capture`, then sync the monorepo mirror from the `aijourney` root with `pnpm run ui-task-capture:sync-repo`.
 - The package targets Node `>=24 <25` for server-side helpers and modern browser runtimes for the DOM capture layer.
