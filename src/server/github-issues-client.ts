@@ -1,7 +1,8 @@
-import type {
-  GitHubIssueClient,
-  GitHubIssueDraft,
-  GitHubIssueResult,
+import {
+  githubIssueResponseSchema,
+  type GitHubIssueClient,
+  type GitHubIssueDraft,
+  type GitHubIssueResult,
 } from '../contracts/github-issue.js';
 
 export interface GitHubIssuesClientOptions {
@@ -64,12 +65,12 @@ export class GitHubIssuesClient implements GitHubIssueClient {
       throw new Error(describeError(response.status, payload));
     }
 
-    const record = payload as Record<string, unknown>;
+    const data = githubIssueResponseSchema.parse(payload);
     return {
-      id: Number(record.id),
-      number: Number(record.number),
-      url: String(record.html_url),
-      title: String(record.title),
+      id: data.id,
+      number: data.number,
+      url: data.html_url,
+      title: data.title,
     };
   }
 }

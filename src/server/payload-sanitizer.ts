@@ -20,7 +20,7 @@ export function sanitizeTaskCapturePayload(
     ...input,
     routePath: truncate(input.routePath, 500) ?? '/',
     routeQuery: truncate(input.routeQuery, 2000),
-    currentUrl: truncate(input.currentUrl, 2000) ?? input.routePath,
+    currentUrl: truncate(input.currentUrl, 2000) ?? input.currentUrl,
     pageTitle: truncate(input.pageTitle, 300),
     comment: truncate(input.comment, 4000) ?? '',
     commentTitleOverride: truncate(input.commentTitleOverride, 140),

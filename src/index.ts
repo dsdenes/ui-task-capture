@@ -27,6 +27,7 @@ export {
   type UiTaskCaptureStatus,
   type UiTaskCaptureViewport,
 } from './contracts/create-ui-task-capture.js';
+export { githubIssueResponseSchema } from './contracts/github-issue.js';
 export type {
   GitHubIssueClient,
   GitHubIssueDraft,

@@ -1,4 +1,12 @@
+import { z } from 'zod';
 import type { BrowserTaskCapturePayload } from './task-capture.js';
+
+export const githubIssueResponseSchema = z.object({
+  id: z.number().int().positive(),
+  number: z.number().int().positive(),
+  html_url: z.string().url(),
+  title: z.string().min(1),
+});
 
 export interface GitHubIssueDraft {
   title: string;

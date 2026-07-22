@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import type { BrowserTaskCapturePayload } from '../contracts/task-capture.js';
 import { buildIssueBody, buildIssueDraft, deriveIssueTitle } from './issue-body-builder.js';
 
-const sampleCapture = {
+const sampleCapture: BrowserTaskCapturePayload = {
   routePath: '/settings/users',
   routeQuery: 'filter=active',
   currentUrl: 'https://ai.1p.hu/settings/users?filter=active',
